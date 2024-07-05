@@ -4,4 +4,3 @@ colorama==0.4.4
 GitPython
 requests
 rdflib
-json

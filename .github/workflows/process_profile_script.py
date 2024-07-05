@@ -1,6 +1,7 @@
 import requests, json
 from rdflib import Graph, Namespace, Literal, URIRef, BNode
 from rdflib.namespace import RDF, RDFS, DCTERMS
+import sys
 
 # Defining namespaces
 bioschemas = Namespace("https://bioschemas.org/profiles/")
@@ -141,6 +142,18 @@ def processProfiles ():
     for l in profilelatestversions:
         print(" - " + l["profile"] + " " + l["version"])
 
-if __name__ == '__main__':
-    processProfiles ()
 
+# ## Main Script
+
+args = sys.argv
+website_repo = args[-1]
+args.remove(website_repo)
+
+# For each new uploaded JSON-LD file
+for arg in args:
+    if "jsonld" in arg.split("/"):
+        if "json" in arg.split("."):
+            arglist = arg.split("/")
+
+            profile_name = arg.split("/")[-1].split(".json")[0].split("_")[0]
+            processProfiles(profile_name)

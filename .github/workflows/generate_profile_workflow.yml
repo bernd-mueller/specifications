@@ -77,11 +77,14 @@ jobs:
       - name: Execute the config files update Python Script
         run: |
           python ./.github/workflows/config_file_update_script.py ${{steps.changed-files.outputs.all_changed_files}}
-          python ./.github/workflows/process_profile_script.py ${{github.action}}
 
       - name: Execute the profile rendering Python Script
         run: |
           python ./.github/workflows/profile_generation_script.py ${{steps.changed-files.outputs.all_changed_files}} bioschemas.github.io
+
+      - name: Exectute Enrichment by Profile Ontology script
+        run: |
+          python ./.github/workflows/process_profile_script.py ${{github.action}}
       
       - name: Setup the Github TOKEN
         uses: oleksiyrudenko/gha-git-credentials@v2-latest

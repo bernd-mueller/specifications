@@ -12,7 +12,7 @@ on:
 
 env:
   # current job token
-  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  GH_TOKEN: ${{ secrets.BERND_MUELLER_SECRET_TOKEN }}
 
 # inputs:
 #   branch-name: 

@@ -1,4 +1,4 @@
-import requests, json
+import requests
 from rdflib import Graph, Namespace, Literal, URIRef, BNode
 from rdflib.namespace import RDF, RDFS, DCTERMS
 import sys
@@ -156,4 +156,5 @@ for arg in args:
             arglist = arg.split("/")
 
             profile_name = arg.split("/")[-1].split(".json")[0].split("_")[0]
+            print(profile_name)
             processProfiles(profile_name)

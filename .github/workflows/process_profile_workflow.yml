@@ -20,7 +20,7 @@ env:
 #     required: true
 
 jobs:
-  generate-profile:
+  process-profile:
     runs-on: ubuntu-latest
 
     steps: 
